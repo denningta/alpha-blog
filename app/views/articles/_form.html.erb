@@ -1,24 +1,42 @@
-<% if @article.errors.any? %>
-    Please address the following errors:
-    <ul>
-        <% @article.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-        <% end %>
-    </ul>
-<% end %>
+<%= render "shared/errors", obj: @article %>
 
+<div class="container">
 <%= form_for @article do |f| %>
-    <p>
-        <%= f.label :title %><br>
-        <%= f.text_field :title %>
-    </p>
-    <p>
-        <%= f.label :description %> <br>
-        <%= f.text_area :description %>
-    </p>
-    <p>
-        <%= f.submit %>
-    </p>
-<% end %>
+  <div class="row form-group">
+    <!-- <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label> -->
+    <div class="col-sm text-right">
+        <%= f.label :title, class: "col-form-label" %>
+    </div>
+    <div class="col-sm-8">
+      <!-- <input type="email" class="form-control" id="inputEmail3"> -->
+      <%= f.text_field :title, class: "form-control", placeholder: "Title of article" %>
+    </div>
+    <div class="col-sm">
+    </div>
+  </div>
+  <div class="row form-group">
+    <!-- <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label> -->
+    <div class="col-sm text-right">
+        <%= f.label :description, class: "col-form-label" %>    
+    </div>
+    <div class="col-sm-8">
+      <!-- <input type="password" class="form-control" id="inputPassword3"> -->
+      <%= f.text_area :description, rows: 10, class: "form-control", placeholder: "Body of article" %>
+    </div>
+    <div class="col-sm">
+    </div>
 
-<%= link_to "Back to Article listing", articles_path %>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-2 col-form-label"></div>
+    <div class="col-sm-10">
+      <!-- <button type="submit" class="btn btn-primary">Sign in</button> -->
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
+</div>
+
+
+<%= link_to "[ Cancel request and return to article listing ]", articles_path %>
+
