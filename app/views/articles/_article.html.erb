@@ -21,7 +21,9 @@
                     <hr>
                     <div class="article-actions col-sm-10">
                         <%= link_to "View", article_path(article), class: "btn btn-sm btn-success" %> 
-                        <%= link_to "Edit", edit_article_path(article), class: "btn btn-sm btn-primary" %> 
+                        <% if logged_in? && current_user == article.user %>
+                            <%= link_to "Edit", edit_article_path(article), class: "btn btn-sm btn-primary" %> 
+                        <% end %>
                     </div>
                 </div>
             </div>
