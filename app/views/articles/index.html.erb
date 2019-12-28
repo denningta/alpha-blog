@@ -1,12 +1,15 @@
 <h1>List of all Articles</h1>
 <p><%= link_to "Create New Article", new_article_path %></p>
-<table>
-    <tr>
-        <th>Title: </th>
-        <th>Description: </th>
-    </tr>
 
+<div class="row">
+    <div class="mx-auto">
+        <%= will_paginate %>
+    </div>
+</div>
     <%= render 'article', obj: @articles %>
-    
-</table>
 
+<div class="row">
+    <div class="mx-auto">
+        <%= will_paginate %>
+    </div>
+</div>
