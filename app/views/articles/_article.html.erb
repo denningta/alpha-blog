@@ -1,0 +1,29 @@
+<% obj.each do |article| %>
+
+        <div class="col-sm-8 offset-sm-2 mt-3 mb-3">
+            <div class="card">
+                <div class="card-header">
+                    <h2 align="center">Title: <%= article.title %></h2>
+                </div>
+                <div class="card-body text-left">
+                    <p class="card-text">
+                        <%= truncate(article.description, length: 100) %>
+                        <div class="article-meta-details">
+                            <small>
+                                Created By: <%= article.user.username if article.user %>, 
+                                <%= time_ago_in_words(article.created_at) %> ago, 
+                                last updated: <%= time_ago_in_words(article.updated_at) %> ago
+                            </small> 
+                        </div>
+                    </p>
+                    <hr>
+                    <div class="article-actions col-sm-10">
+                        <%= link_to "View", article_path(article), class: "btn btn-sm btn-success" %> 
+                        <%= link_to "Edit", edit_article_path(article), class: "btn btn-sm btn-primary" %> 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <% end %>
