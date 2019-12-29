@@ -37,7 +37,7 @@
             <%= link_to 'Sign up', signup_path, class: "nav-link" %>
           </li>
         <% end %>
-        <% if current_user.admin? %>
+        <% if logged_in? && current_user.admin? %>
           <li class="new-item my-auto ml-5">
             <small class="alert alert-primary">Admin</small>
           </li>
