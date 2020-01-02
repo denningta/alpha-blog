@@ -1,7 +1,11 @@
 <h1><%= "Category: " + @category.name %></h1>
 
 <div class="row">
+        
     <div class="mx-auto">
+        <% if  logged_in? && current_user.admin? %>
+            <%= link_to "Edit Category Name", edit_category_path(@category), class: "btn btn-primary btn-sm" %>
+        <% end %>
         <%= will_paginate @category_articles %>
     </div>
 </div>
