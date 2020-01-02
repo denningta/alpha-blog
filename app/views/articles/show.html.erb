@@ -23,6 +23,9 @@
             <% end %>
             <h4>Description:</h4>
             <p class="card-text"><%= @article.description %></p>
+            <% if @article.categories.any? %>
+                <small><p>Categories: <%= render @article.categories %></p></small>
+            <% end %>
             <hr>
             <div class="article-actions col-sm-10">
                 <% if logged_in? && (current_user == @article.user || current_user.admin?) %>
